@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Arrays</title>
+  </head>
+  <body>
+    <script>
+      const vector1 = ["papa", "lechuga", "tomate"];
+      const vector2 = ["batata", "zanahoria"];
+      const vector3 = ["batata", "zanahoria"];
+
+      console.log(vector1);
+      console.log(vector2);
+      console.log(vector3);
+
+      const nuevo = vector1.concat(vector2, vector3);
+
+      console.log(nuevo);
+
+      const otro = [...vector1, ...vector2];
+      console.log(otro);
+      console.log(...vector1);
+      console.log("texto", "texto", "texto");
+      vector1.push(...vector2);
+      console.log(vector1);
+    </script>
+  </body>
+</html>

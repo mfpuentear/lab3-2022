@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Objetos</title>
+  </head>
+  <body>
+    <script>
+      const punto = {
+        x: 3,
+        y: 2,
+        z: 1,
+      };
+
+      for (let nombre in punto) {
+        console.log(punto[nombre]);
+      }
+
+      for (let i = 0; i < 5; i++) {
+        //punto[`direccion${i}`] = i * 2;
+        punto["direccion" + i] = i * 2;
+      }
+
+      console.log(punto);
+    </script>
+  </body>
+</html>

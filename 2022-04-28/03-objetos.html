@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Objetos</title>
+  </head>
+  <body>
+    <script>
+      //const punto = { i: { y: 3 } };
+      const punto = null;
+
+      if (punto) {
+        if (punto.x) {
+          valor = punto.x.r;
+          console.log(valor);
+        }
+      }
+
+      valor = punto && punto.x && punto.x.r;
+      console.log(valor);
+
+      valor = punto?.x?.r;
+      console.log(valor);
+    </script>
+  </body>
+</html>

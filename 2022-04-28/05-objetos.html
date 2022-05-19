@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Objetos</title>
+  </head>
+  <body>
+    <script>
+      const punto = {
+        x: 1,
+        y: 2,
+
+        get distancia() {
+          return Math.sqrt(this.x ** 2 + this.y ** 2);
+        },
+        set distancia(value) {
+          this.x = (Math.sqrt(2) * value) / 2;
+          this.y = (Math.sqrt(2) * value) / 2;
+        },
+      };
+
+      console.log(punto.distancia);
+      punto.distancia = 4;
+      console.log(punto.distancia);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Reduce</title>
+  </head>
+  <body>
+    <script>
+      const arreglo = [1, 2, 53, 64, 5, 12, 13, 11, 14];
+
+      const suma = arreglo.reduce((previo, actual) => previo + actual, 0);
+
+      /*
+      const suma = arreglo.reduce((previo, actual) => {
+        console.log(previo);
+        console.log(actual);
+        console.log("---");
+        return previo + actual;
+      }, 0);
+      */
+
+      const mayor = arreglo.reduce(
+        (previo, actual) => (actual > previo ? actual : previo),
+        arreglo[0]
+      );
+
+      console.log(suma);
+      console.log(mayor);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Funciones</title>
+  </head>
+  <body>
+    <script>
+      function sumar() {
+        let suma = 0;
+        for (let i = 0; i < arguments.length; i++) {
+          suma += arguments[i];
+        }
+        return suma;
+      }
+
+      function miFuncion(num1, num2) {
+        console.log(num1);
+        console.log(num2);
+        arguments[1] = 4;
+        console.log(num1);
+        console.log(num2);
+      }
+
+      const resultado = sumar(4, 3, 2, 1, -5, -7);
+      console.log(resultado);
+      miFuncion(1, 2);
+    </script>
+  </body>
+</html>

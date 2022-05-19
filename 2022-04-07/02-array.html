@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Arrays</title>
+  </head>
+  <body>
+    <script>
+      const vector1 = [-2, 5, 3, 7, 2, 8, 1, -4];
+
+      // No se puede elegir el ultimo
+      console.log(vector1[-1]);
+
+      const vector2 = vector1.slice(-1);
+      console.log(vector1);
+      console.log(vector2);
+
+      vector1.splice(3, 0, 9, 2);
+      console.log(vector1);
+    </script>
+  </body>
+</html>

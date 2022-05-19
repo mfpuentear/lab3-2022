@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Funciones</title>
+  </head>
+  <body>
+    <script>
+      function saludar() {
+        const mensaje = "hola";
+
+        return function () {
+          console.log(mensaje);
+        };
+      }
+
+      const saludo = saludar();
+      saludo();
+
+      const miFuncion = function () {
+        console.log("mi funcion");
+      };
+
+      miFuncion();
+
+      const a = true;
+
+      /*
+      if (a === true) {
+        function hola() {
+          console.log("hola");
+        }
+      } else {
+        function hola() {
+          console.log("chau");
+        }
+      }
+      */
+
+      let hola;
+
+      if (a === true) {
+        hola = function () {
+          console.log("hola");
+        };
+      } else {
+        hola = function () {
+          console.log("chau");
+        };
+      }
+      hola();
+    </script>
+  </body>
+</html>

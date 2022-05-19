@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Funciones</title>
+  </head>
+  <body>
+    <script>
+      const saludo = function () {
+        console.log("Saludo " + arguments[0]);
+        return function () {
+          console.log("Retorno " + arguments[0]);
+        };
+      };
+
+      const hola = saludo("hola");
+      hola("mensaje");
+
+      const saludo2 = function () {
+        console.log("Saludo2 " + arguments[0]);
+        return () => {
+          console.log("Retorno2 " + arguments[0]);
+        };
+      };
+
+      const hola2 = saludo2("hola2");
+      hola2("mensaje2");
+    </script>
+  </body>
+</html>

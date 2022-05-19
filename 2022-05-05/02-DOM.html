@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Colores</title>
+  </head>
+  <body>
+    <p id="texto">Un texto</p>
+    <label for="colorTexto">Color del texto</label>
+    <select id="colorTexto">
+      <option value="black">Negro</option>
+      <option value="red">Rojo</option>
+      <option value="green">Verde</option>
+      <option value="blue">Azul</option>
+    </select>
+    <label for="colorFondo">Color del fondo</label>
+    <select id="colorFondo">
+      <option value="white">Blanco</option>
+      <option value="red">Rojo</option>
+      <option value="green">Verde</option>
+      <option value="blue">Azul</option>
+    </select>
+  </body>
+  <script>
+    // Cambiar colores:
+    const texto = document.querySelector("#texto");
+    const colorTexto = document.querySelector("#colorTexto");
+
+    texto.style.color = "red";
+    texto.style.backgroundColor = "green";
+    texto.style["text-decoration"] = "line-through";
+
+    colorTexto.onchange = () => console.log(colorTexto.value);
+  </script>
+</html>

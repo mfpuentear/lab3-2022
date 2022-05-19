@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DOM</title>
+  </head>
+  <body>
+    <input id="nombreTarea" />
+    <button id="agregarTarea">Agregar</button>
+    <button id="confirmar">Confirmar</button>
+    <ul id="lista"></ul>
+    <script>
+      const arreglo = [
+        { id: 1, descripcion: "tarea 1", lista: true },
+        { id: 2, descripcion: "tarea 2", lista: false },
+        { id: 3, descripcion: "tarea 3", lista: true },
+      ];
+      let maxId = 3;
+      const lista = document.querySelector("#lista");
+      const nombreTarea = document.querySelector("#nombreTarea");
+      const agregarTarea = document.querySelector("#agregarTarea");
+      const confirmar = document.querySelector("#confirmar");
+
+      for (let i = 0; i < arreglo.length; i++) {
+        const item = document.createElement("li");
+        item.textContent = arreglo[i].descripcion;
+        //item.style.textDecoration = arreglo[i].lista ? "line-through" : "";
+        item.style["text-decoration"] = arreglo[i].lista ? "line-through" : "";
+        lista.appendChild(item);
+      }
+
+      agregarTarea.onclick = () => {
+        const item = document.createElement("li");
+        item.textContent = nombreTarea.value;
+        arreglo.push({
+          id: ++maxId,
+          descripcion: nombreTarea.value,
+          lista: false,
+        });
+        const eliminar = document.createElement("button");
+        eliminar.textContent = "X";
+        item.appendChild(eliminar);
+        lista.appendChild(item);
+      };
+
+      confirmar.onclick = () => {
+        if (confirm("¿Desea eliminar tarea?")) {
+          // eliminar tarea
+          item.remove();
+        }
+      };
+    </script>
+  </body>
+</html>

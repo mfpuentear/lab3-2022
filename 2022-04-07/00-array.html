@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Arrays</title>
+  </head>
+  <body>
+    <script>
+      const vector = [0, 4, 2, 6, 4, 3, -3];
+      // Leer vector
+      console.log(vector);
+
+      // mostar tamaño
+      console.log(vector.length);
+
+      // leer una posicion
+      console.log(vector[3]);
+
+      // modificar una posicion
+      vector[3] = 45;
+      console.log(vector[3]);
+
+      // Agrego 8 al final
+      vector.push(8);
+      console.log(vector);
+
+      // Agrego -2 al final
+      vector[vector.length] = -2;
+      console.log(vector);
+
+      // Quito el ultimo elemento
+      let item = vector.pop();
+      console.log(item);
+      console.log(vector);
+
+      // Agregar 7 al principio
+      vector.unshift(7);
+      console.log(vector);
+
+      // Quitar primer elemento
+      item = vector.shift();
+      console.log(item);
+      console.log(vector);
+    </script>
+  </body>
+</html>

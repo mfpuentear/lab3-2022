@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Map</title>
+  </head>
+  <body>
+    <script>
+      const arreglo = [1, 2, 3, 4];
+
+      /*
+      const duplicar = function (item) {
+        return item * 2;
+      };
+
+      const res = arreglo.map(duplicar);
+      */
+
+      const res = arreglo.map((item) => item * 2);
+
+      console.log(arreglo);
+      console.log(res);
+
+      const res2 = [];
+      for (let i = 0; i < arreglo.length; i++) {
+        res2.push(arreglo[i] * 2);
+      }
+      console.log(res2);
+    </script>
+  </body>
+</html>

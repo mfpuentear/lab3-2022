@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Funciones</title>
+  </head>
+  <body>
+    <script>
+      function miFuncion1() {
+        console.log("funcion 1");
+      }
+
+      const miFuncion2 = function () {
+        console.log("funcion 2");
+      };
+
+      const miFuncion3 = () => {
+        console.log("funcion 3");
+      };
+
+      const funcion4 = (a, b) => {
+        return a + b;
+      };
+
+      const funcion5 = (a) => a + b;
+
+      miFuncion1();
+      miFuncion2();
+      miFuncion3();
+      console.log(funcion4(1, 4));
+      console.log(funcion5(8, 4));
+    </script>
+  </body>
+</html>
