@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Clases</title>
+  </head>
+  <body>
+    <script type="module">
+      import { Punto } from "./punto.js";
+
+      const punto = new Punto(1, 2);
+      punto.mostrar();
+      console.log(punto.distancia);
+      punto.distancia = 4;
+      console.log(punto.distancia);
+    </script>
+  </body>
+</html>
