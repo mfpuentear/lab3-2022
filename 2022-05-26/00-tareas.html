@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tareas</title>
+  </head>
+  <body>
+    <input id="nombreTarea" />
+    <button id="agregarTarea">Agregar</button>
+    <ul id="lista"></ul>
+    <script>
+      let tareas = [];
+      let maxId = 0;
+      const lista = document.querySelector("#lista");
+      const nombreTarea = document.querySelector("#nombreTarea");
+      const agregarTarea = document.querySelector("#agregarTarea");
+
+      agregarTarea.onclick = () => {
+        const item = document.createElement("li");
+        item.textContent = nombreTarea.value;
+
+        const nuevaTarea = {
+          id: ++maxId,
+          descripcion: nombreTarea.value,
+          lista: false,
+        };
+        tareas.push(nuevaTarea);
+
+        item.onclick = () => {
+          nuevaTarea.lista = !nuevaTarea.lista;
+          item.style["text-decoration"] = nuevaTarea.lista
+            ? "line-through"
+            : "";
+        };
+
+        const eliminar = document.createElement("button");
+        eliminar.textContent = "X";
+        eliminar.onclick = () => {
+          if (confirm(`¿Desea quitar la tarea "${nuevaTarea.descripcion}"?`)) {
+            tareas = tareas.filter((tarea) => tarea.id !== nuevaTarea.id);
+            item.remove();
+          }
+        };
+
+        item.appendChild(eliminar);
+        lista.appendChild(item);
+      };
+    </script>
+  </body>
+</html>
