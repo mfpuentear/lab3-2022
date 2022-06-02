@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tareas</title>
+  </head>
+  <body>
+    <input id="nombreTarea" />
+    <button id="agregarTarea">Agregar</button>
+    <ul id="listaTareas"></ul>
+    <script>
+      const listaTareas = document.querySelector("#listaTareas");
+      const nombreTarea = document.querySelector("#nombreTarea");
+      const agregarTarea = document.querySelector("#agregarTarea");
+
+      function crearTarea(tarea) {
+        const item = document.createElement("li");
+        item.textContent = tarea.descripcion;
+        item.style["text-decoration"] = tarea.lista ? "line-through" : "";
+
+        item.onclick = async () => {
+          const respuesta = await fetch(
+            "http://localhost:3000/tareas/" + tarea.id,
+            {
+              method: "PUT",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ ...tarea, lista: !tarea.lista }),
+            }
+          );
+          if (respuesta.ok) {
+            const tareaModificada = await respuesta.json();
+            tarea.lista = tareaModificada.lista;
+            item.style["text-decoration"] = tareaModificada.lista
+              ? "line-through"
+              : "";
+          }
+        };
+
+        const eliminar = document.createElement("button");
+        eliminar.textContent = "X";
+        eliminar.onclick = async () => {
+          if (confirm(`¿Desea quitar la tarea "${tarea.descripcion}"?`)) {
+            const respuesta = await fetch(
+              "http://localhost:3000/tareas/" + tarea.id,
+              {
+                method: "DELETE",
+              }
+            );
+            if (respuesta.ok) {
+              item.remove();
+            } else {
+              console.error("error al eliminar tarea");
+            }
+          }
+        };
+
+        item.appendChild(eliminar);
+        listaTareas.appendChild(item);
+      }
+
+      agregarTarea.onclick = async () => {
+        const respuesta = await fetch("http://localhost:3000/tareas", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            descripcion: nombreTarea.value,
+            lista: false,
+          }),
+        });
+        if (respuesta.ok) {
+          const nuevaTarea = await respuesta.json();
+          crearTarea(nuevaTarea);
+        } else {
+          console.error("Fallo al crear tarea");
+        }
+      };
+
+      async function leerTareas() {
+        const respuesta = await fetch("http://localhost:3000/tareas");
+        const tareas = await respuesta.json();
+
+        tareas.map((tarea) => crearTarea(tarea));
+      }
+      leerTareas();
+    </script>
+  </body>
+</html>

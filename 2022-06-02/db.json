@@ -1,0 +1,45 @@
+{
+  "animales": [
+    {
+      "id": 1,
+      "nombre": "elefante",
+      "color": "gris",
+      "tamaño": "grande"
+    },
+    {
+      "id": 2,
+      "nombre": "raton",
+      "color": "blanco",
+      "tamaño": "chico"
+    },
+    {
+      "id": 3,
+      "nombre": "perro",
+      "color": "negro",
+      "tamaño": "mediano"
+    },
+    {
+      "nombre": "gato",
+      "color": "Amarillo",
+      "tamaño": "mediano",
+      "id": 4
+    }
+  ],
+  "tareas": [
+    {
+      "id": 1,
+      "descripcion": "Tarea 1",
+      "lista": true
+    },
+    {
+      "id": 2,
+      "descripcion": "Tarea 2",
+      "lista": false
+    },
+    {
+      "descripcion": "otra mas",
+      "lista": false,
+      "id": 4
+    }
+  ]
+}

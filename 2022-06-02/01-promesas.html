@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Promesas</title>
+  </head>
+  <body>
+    <script>
+      async function main() {
+        const promesa = new Promise((resolve, reject) => {
+          const x = 2;
+
+          if (x == 1) {
+            resolve("a vale 1");
+          } else {
+            reject("a no vale 1");
+          }
+        });
+
+        //promesa
+        //.then((mensaje) => console.log(mensaje))
+        //.catch((mensaje) => console.error(mensaje));
+        try {
+          const mensaje = await promesa;
+          console.log(mensaje);
+        } catch (e) {
+          console.error(e);
+        }
+      }
+      main();
+    </script>
+  </body>
+</html>
